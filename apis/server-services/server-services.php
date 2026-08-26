@@ -4,20 +4,21 @@ include '../../database/connection.php';
 
 $packages = [];
 
-if (isset($_GET['category'])) {//Check karo ke URL mein category naam ki value bheji gayi hai ya nahi.
+if (isset($_GET['name'])) {//please check it that value of category is send or not
 
 
-    $category = $_GET['category'];//agar value bheji gayi hai to usko $category wale variable mein rekh do
 
+    $name = $_GET['name'];//if value is sending then insert into the $category varaible
+    echo $name;
 
-    $sql = "SELECT CategoryId,  Category
-            FROM   tbl_gf_package_category
-            WHERE Category = '$category'";
+    $sql = "SELECT LogPackageId,  LogPackageTitle
+            FROM    tbl_gf_log_packages
+            WHERE LogPackageTitle = '$name'";
 
 } else {
 
-    $sql = "SELECT CategoryId, Category
-            FROM   tbl_gf_package_category";
+    $sql = "SELECT LogPackageId,  LogPackageTitle
+            FROM   tbl_gf_log_packages";
 }
 
 $result = mysqli_query($conn, $sql);

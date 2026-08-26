@@ -4,13 +4,14 @@ include '../../database/connection.php';
 
 $packages = [];
 
-if (isset($_GET['category'])) {
+if (isset($_GET['name'])) {//please check it that value of category is send or not
+ 
+    $name = $_GET['name'];///if value is sending then insert into the $category varaible
 
-    $category = $_GET['category'];
 
     $sql = "SELECT CategoryId,  Category
             FROM  tbl_gf_log_package_category
-            WHERE Category = '$category'";
+            WHERE Category = '$name'";
 
 } else {
 
