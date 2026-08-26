@@ -4,9 +4,9 @@ include '../../database/connection.php';
 
 $packages = [];
 
-if (isset($_GET['name'])) {//please check it that value of category is send or not
+if (isset($_GET['name'])) {//please check it that value of name is send or not
  
-    $name = $_GET['name'];///if value is sending then insert into the $category varaible
+    $name = $_GET['name'];///if value is sending then insert into the $name varaible
 
 
     $sql = "SELECT CategoryId,  Category
