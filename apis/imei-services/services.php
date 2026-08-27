@@ -3,20 +3,22 @@
 include '../../database/connection.php';
 
 $packages = [];
+ 
+// Empty $where stores GET value or all table data
+// If condition is true, $where stores GET value; otherwise all table data$where = "";
+ 
+$where = "";
 
-if (isset($_GET['name'])) {//please check it that value of category is send or not
+if (isset($_GET['name'])) {
 
-    $name = $_GET['name'];//if value is sending then insert into the $category varaible
+    $name = $_GET['name'];
 
-    $sql = "SELECT PackageId, PackageTitle
-            FROM  tbl_gf_packages
-            WHERE PackageTitle = '$name'";
-
-} else {
-
-    $sql = "SELECT PackageId, PackageTitle
-            FROM  tbl_gf_packages";
+    $where = "WHERE PackageTitle = '$name'";
 }
+
+$sql = "SELECT PackageId, PackageTitle
+        FROM tbl_gf_packages
+        $where";
 
 $result = mysqli_query($conn, $sql);
 

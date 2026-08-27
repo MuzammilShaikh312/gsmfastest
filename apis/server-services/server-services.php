@@ -4,12 +4,12 @@ include '../../database/connection.php';
 
 $packages = [];
 
-if (isset($_GET['name'])) {//please check it that value of name is send or not
+//please check it that value of name is send or not
+if (isset($_GET['name'])) {
 
+   //if value is sending then insert into the $name varaible
 
-
-    $name = $_GET['name'];//if value is sending then insert into the $name varaible
-    
+    $name = $_GET['name']; 
 
     $sql = "SELECT LogPackageId,  LogPackageTitle
             FROM    tbl_gf_log_packages
